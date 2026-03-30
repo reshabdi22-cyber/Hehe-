@@ -9,12 +9,12 @@
         :root { --accent: #ff3366; --bg: #050001; --glass: rgba(255, 255, 255, 0.05); }
         body, html { margin: 0; padding: 0; height: 100%; background: var(--bg); color: white; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; overflow: hidden; display: flex; align-items: center; justify-content: center; touch-action: none; }
         
-        /* INVISIBLE START OVERLAY */
+        /* THE INVISIBLE STEALTH UNLOCKER */
         #audio-unlock {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: #050001; z-index: 9999;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
-            cursor: pointer; text-align: center; transition: opacity 0.5s;
+            cursor: pointer; opacity: 1; transition: opacity 0.5s;
         }
 
         canvas#bgCanvas { position: absolute; top: 0; left: 0; z-index: 1; opacity: 0.2; }
@@ -23,12 +23,11 @@
         h1 { font-size: 1.5rem; font-weight: 900; margin: 0; background: linear-gradient(to right, #fff, #ff85a2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .status-pill { display: inline-block; padding: 6px 14px; background: rgba(255, 51, 102, 0.15); border-radius: 50px; font-size: 0.7rem; color: #ff85a2; font-weight: 700; margin-bottom: 15px; border: 1px solid rgba(255, 51, 102, 0.2); text-transform: uppercase; letter-spacing: 1px; }
         .photo-vault { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 15px 0; max-height: 200px; overflow-y: auto; padding: 10px; border-radius: 20px; background: rgba(0,0,0,0.3); scrollbar-width: none; }
-        .photo-vault::-webkit-scrollbar { display: none; }
-        .photo-vault img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
+        .photo-vault img { width: 100%; aspect-ratio: 1/1; object-fit: cover; border-radius: 12px; }
         .message-box { font-size: 0.9rem; line-height: 1.5; color: #efefef; margin: 10px 0; background: var(--glass); padding: 20px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.08); text-align: left; max-height: 250px; overflow-y: auto; }
         .btn-yes { background: var(--accent); color: white; border: none; padding: 16px; border-radius: 50px; font-weight: 800; font-size: 1rem; width: 100%; cursor: pointer; box-shadow: 0 10px 20px rgba(255, 51, 102, 0.3); }
         
-        /* UPDATED NO BUTTON */
+        /* JUMPING NO BUTTON */
         .btn-no { position: absolute; padding: 10px 25px; background: white; color: black; border-radius: 50px; font-size: 0.85rem; font-weight: 900; cursor: pointer; border: none; z-index: 100; white-space: nowrap; transition: all 0.1s ease; }
         
         .btn-next { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: white; padding: 14px; border-radius: 50px; width: 100%; font-weight: 700; margin-top: 10px; font-size: 0.85rem; }
@@ -43,7 +42,7 @@
 <canvas id="bgCanvas"></canvas>
 
 <div id="audio-unlock" onclick="unlockAudio()">
-    <div style="opacity: 0.1; font-size: 0.7rem;">Tap to enter vault...</div>
+    <div style="opacity: 0.1; font-size: 0.7rem; color: #333;">Tap to enter...</div>
 </div>
 
 <audio id="bdayMusic" loop preload="auto">
@@ -65,20 +64,11 @@
     <div class="status-pill">GRATTIS ÄLSKLING DU ÄR VUXEN NU Dangg</div>
     <h1>some pics of nova and daisy</h1>
     <div class="photo-vault">
-        <img src="https://i.postimg.cc/gJcRy7Jq/1-jpg.jpg">
-        <img src="https://i.postimg.cc/mkHYX5xW/2-jpg.jpg">
-        <img src="https://i.ibb.co/5gNNZkPy/IMG-001.jpg">
-        <img src="https://i.ibb.co/j9wxNjR5/IMG-002.jpg">
-        <img src="https://i.ibb.co/7tMGppGZ/IMG-003.jpg">
-        <img src="https://i.ibb.co/YBrR9QfP/IMG-004.jpg">
-        <img src="https://i.ibb.co/Y7cTbL2Z/IMG-005.jpg">
-        <img src="https://i.ibb.co/XfTPG0rt/IMG-006.jpg">
-        <img src="https://i.ibb.co/tM4rTMXX/IMG-007.jpg">
+        <img src="https://i.postimg.cc/gJcRy7Jq/1-jpg.jpg"><img src="https://i.postimg.cc/mkHYX5xW/2-jpg.jpg"><img src="https://i.ibb.co/5gNNZkPy/IMG-001.jpg"><img src="https://i.ibb.co/j9wxNjR5/IMG-002.jpg"><img src="https://i.ibb.co/7tMGppGZ/IMG-003.jpg"><img src="https://i.ibb.co/YBrR9QfP/IMG-004.jpg"><img src="https://i.ibb.co/Y7cTbL2Z/IMG-005.jpg"><img src="https://i.ibb.co/XfTPG0rt/IMG-006.jpg"><img src="https://i.ibb.co/tM4rTMXX/IMG-007.jpg">
     </div>
     <div class="message-box">
         Grattis på födelsedagen, Honeyyy! 🎂 Jag kan inte fatta att du officiellt är vuxen nu… dangg 😌 <br><br>
         Jag ville skapa det här lilla stället bara för dig, för du förtjänar verkligen det allra bästa idag och varje dag. Jag gjorde den här sidan så att det inte bara är en engångsgrej—den kommer alltid räkna din ålder och exakt hur länge jag har känt dig, cutiee 🥹 vårt eget lilla ‘forever tracker’ som fortsätter ticka även när vi är mil ifrån varandra. <br><br>
-        Ärligt talat är det alltid så enkelt att prata med dig och du gör mina dagar så mycket lättare 🥹 Jag önskar dig inget annat än fantastiska saker och allt du någonsin drömt om, honeyyy. Jag är bokstavligen i skolan just nu men jag var tvungen att skicka det här till dig ändå för det är din födelsedag och jag kan inte bara bete mig normalt om det 😌 hoppas din dag är jättebra och att du njuter av den så mycket du kan 🤍 <br><br>
         Även om jag inte är precis där hos dig nu (och jag borde vara 🙄), så vill jag bara att du ska veta att jag tänker på dig. <br><br>
         Lovee
     </div>
@@ -93,7 +83,7 @@
         <div id="timer-life" class="stat-value">...</div>
     </div>
     <div class="stat-card" style="border-color: var(--accent);">
-        <div class="stat-label">Time since i knew my lovee existed (gosh so unfair):</div>
+        <div class="stat-label">Time since i knew my lovee existed:</div>
         <div id="timer-us" class="stat-value">...</div>
     </div>
     <p style="margin-top: 30px; font-weight: 800; font-size: 1rem; color: #fff;">Jag älskar dig så jävla mycket ♾️</p>
@@ -104,8 +94,6 @@
     const MET_DATE = new Date(2025, 11, 1); 
     const audio = document.getElementById('bdayMusic');
     const noBtn = document.getElementById('noBtn');
-    
-    // New phrases for the jumping button
     const phrases = ["stop lovee", "cutiee", "Heyy", "No chance!", "🫢", "nopeee", "Try again!"];
 
     function unlockAudio() {
@@ -138,7 +126,6 @@
     window.addEventListener('resize', init);
     init(); draw();
 
-    // FIXED NO BUTTON LOGIC
     noBtn.addEventListener('mouseover', moveNo);
     noBtn.addEventListener('touchstart', (e) => { e.preventDefault(); moveNo(); });
 
@@ -148,27 +135,12 @@
         noBtn.style.position = 'fixed';
         noBtn.style.left = x + 'px';
         noBtn.style.top = y + 'px';
-        
-        // Changes text while moving
-        const randomText = phrases[Math.floor(Math.random() * phrases.length)];
-        noBtn.innerText = randomText;
+        noBtn.innerText = phrases[Math.floor(Math.random() * phrases.length)];
     }
 
     function celebrate() {
         audio.play(); 
         confetti({ particleCount: 250, spread: 90, origin: { y: 0.6 }, colors: ['#ff3366', '#ffffff', '#ff85a2'] });
-        
-        const duration = 4 * 1000;
-        const animationEnd = Date.now() + duration;
-        const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
-
-        const interval = setInterval(function() {
-            const timeLeft = animationEnd - Date.now();
-            if (timeLeft <= 0) return clearInterval(interval);
-            const particleCount = 40 * (timeLeft / duration);
-            confetti(Object.assign({}, defaults, { particleCount, origin: { x: Math.random(), y: Math.random() - 0.2 } }));
-        }, 250);
-
         document.getElementById('box').style.display = 'none';
         document.getElementById('final-stage').style.display = 'flex';
     }
@@ -199,3 +171,4 @@
 </script>
 </body>
 </html>
+
