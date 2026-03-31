@@ -1,5 +1,4 @@
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="sv">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +8,10 @@
     <style>
         :root { --accent: #ff3366; --bg: #050001; --glass: rgba(255, 255, 255, 0.05); }
         body, html { margin: 0; padding: 0; height: 100%; background: var(--bg); color: white; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; overflow: hidden; display: flex; align-items: center; justify-content: center; touch-action: none; }
+        
+        /* Stealth Overlay */
         #audio-unlock { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #050001; z-index: 9999; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        
         canvas#bgCanvas { position: absolute; top: 0; left: 0; z-index: 1; opacity: 0.2; }
         .app-card { position: relative; z-index: 10; width: 88%; max-width: 400px; background: rgba(15, 5, 5, 0.95); backdrop-filter: blur(25px); border: 1px solid rgba(255, 51, 102, 0.3); border-radius: 35px; padding: 30px 20px; text-align: center; box-shadow: 0 0 60px rgba(0,0,0,1); display: flex; flex-direction: column; }
         h1 { font-size: 1.5rem; font-weight: 900; margin: 0; background: linear-gradient(to right, #fff, #ff85a2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -46,7 +48,12 @@
     <div class="photo-vault">
         <img src="https://i.postimg.cc/gJcRy7Jq/1-jpg.jpg"><img src="https://i.postimg.cc/mkHYX5xW/2-jpg.jpg"><img src="https://i.ibb.co/5gNNZkPy/IMG-001.jpg"><img src="https://i.ibb.co/j9wxNjR5/IMG-002.jpg"><img src="https://i.ibb.co/7tMGppGZ/IMG-003.jpg"><img src="https://i.ibb.co/YBrR9QfP/IMG-004.jpg"><img src="https://i.ibb.co/Y7cTbL2Z/IMG-005.jpg"><img src="https://i.ibb.co/XfTPG0rt/IMG-006.jpg"><img src="https://i.ibb.co/tM4rTMXX/IMG-007.jpg">
     </div>
-    <div class="message-box">Grattis på födelsedagen, Honeyyy! 🎂... [Your Message Here]</div>
+    <div class="message-box">
+        Grattis på födelsedagen, Honeyyy! 🎂 Jag kan inte fatta att du officiellt är vuxen nu… dangg 😌 <br><br>
+        Jag ville skapa det här lilla stället bara för dig, för du förtjänar verkligen det allra bästa idag och varje dag. Jag gjorde den här sidan så att det inte bara är en engångsgrej—den kommer alltid räkna din ålder och exakt hur länge jag har känt dig, cutiee 🥹 vårt eget lilla ‘forever tracker’ som fortsätter ticka även när vi är mil ifrån varandra. <br><br>
+        Ärligt talat är det alltid så enkelt att prata med dig och du gör mina dagar så mycket lättare 🥹 Jag önskar dig inget annat än fantastiska saker och allt du någonsin drömt om, honeyyy. <br><br>
+        Lovee
+    </div>
     <button style="background: transparent; border: 1px solid rgba(255,255,255,0.2); color: white; padding: 14px; border-radius: 50px; width: 100%; margin-top: 10px;" onclick="showStats()">one more thing cutiee</button>
 </div>
 
@@ -54,6 +61,7 @@
     <h1>ur life path number hehe</h1>
     <div class="stat-card"><div>How long you've blessed the world😇:</div><div id="timer-life" class="stat-value">...</div></div>
     <div class="stat-card" style="border-color: var(--accent);"><div>Time since i knew my lovee existed:</div><div id="timer-us" class="stat-value">...</div></div>
+    <p style="margin-top: 30px; font-weight: 800; font-size: 1rem; color: #fff;">Jag älskar dig så jävla mycket ♾️</p>
 </div>
 
 <script>
@@ -89,6 +97,15 @@
     function showStats() {
         document.getElementById('final-stage').style.display = 'none';
         document.getElementById('stats-stage').style.display = 'flex';
+        
+        // Massive Finale Confetti
+        var end = Date.now() + (4 * 1000);
+        (function frame() {
+            confetti({ particleCount: 5, angle: 60, spread: 55, origin: { x: 0 }, colors: ['#ff3366', '#ffffff'] });
+            confetti({ particleCount: 5, angle: 120, spread: 55, origin: { x: 1 }, colors: ['#ff3366', '#ffffff'] });
+            if (Date.now() < end) { requestAnimationFrame(frame); }
+        }());
+
         setInterval(() => {
             document.getElementById('timer-life').innerText = timeSince(BIRTH_DATE);
             document.getElementById('timer-us').innerText = timeSince(MET_DATE);
@@ -109,4 +126,4 @@
 </body>
 </html>
 
-
+    
